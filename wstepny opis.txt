@@ -1,0 +1,16 @@
+Final Battle
+
+Przeprowadzenie turowej finalowej walki z bossem (4vs1).
+Gracz posiada losowe 4 postacie sposród 5+ klas.
+Przeciwnik bedzie losowany sposród 3 besti.
+Ka¿da klasa ma jakieœ mocne i s³abe strony.
+np.
+Wojownik - du¿e obrazenia, ma³a szybkosc.
+³ucznik - ma³e obrazenia, du¿a celnosc.
+Mag - Du¿e obrazenia , ma³o zycia.
+
+
+Kolejnoœæ wykonywania tur zalezna od szybkosci.
+
+Niektóre postacie oprocz interakcji z wrogiem moga wchodziæ w interakcje z przyjaznymi postaciami.
+Leczenie, zas³ona, buff.
