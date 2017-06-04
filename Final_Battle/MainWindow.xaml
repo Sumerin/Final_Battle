@@ -27,6 +27,9 @@
                 <ColumnDefinition Width="150"/>
             </Grid.ColumnDefinitions>
 
+            <Button Grid.Row="0" Grid.Column="3" Height="30" Click="StartGame">Start</Button>
+            
+            
             <Label Grid.Row="0" Grid.ColumnSpan="4"
                FontSize="40" HorizontalAlignment="Center"
                Margin="100,10,100,50"

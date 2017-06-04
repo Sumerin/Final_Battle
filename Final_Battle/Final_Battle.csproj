@@ -54,12 +54,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Archer.cs" />
-    <Compile Include="Choice.cs" />
-    <Compile Include="Cleric.cs" />
-    <Compile Include="Mage.cs" />
-    <Compile Include="Paladin.cs" />
-    <Compile Include="Warrior.cs" />
+    <Compile Include="Arena.xaml.cs">
+      <DependentUpon>Arena.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BossClasses\Demon.cs" />
+    <Compile Include="CharacterClasses\Archer.cs" />
+    <Compile Include="CharacterClasses\Choice.cs" />
+    <Compile Include="CharacterClasses\Cleric.cs" />
+    <Compile Include="CharacterClasses\Mage.cs" />
+    <Compile Include="CharacterClasses\Paladin.cs" />
+    <Compile Include="CharacterClasses\Warrior.cs" />
+    <Page Include="Arena.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -125,6 +133,22 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\arenaBackground.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\demon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\rabbit.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\shark.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

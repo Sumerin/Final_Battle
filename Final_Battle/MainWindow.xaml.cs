@@ -184,5 +184,12 @@ namespace Final_Battle
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
             }
         }
+
+        private void StartGame(object sender, RoutedEventArgs e)
+        {
+            new Arena(_First, _Second, _Third, _Fourth).Show();
+            Close();
+
+        }
     }
 }
