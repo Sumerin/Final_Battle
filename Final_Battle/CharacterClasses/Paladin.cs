@@ -10,7 +10,7 @@ namespace Final_Battle
     {
          public Paladin()
         {
-            _Hp = 200;
+            _Hp = 120;
             _Dir = "/Images/paladin.png";
             _Dmg = 20;
             _Acc = 0.5;
@@ -18,5 +18,6 @@ namespace Final_Battle
             _Def = 20;
            
         }
+         
     }
 }

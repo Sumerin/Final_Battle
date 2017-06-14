@@ -14,7 +14,15 @@ namespace Final_Battle
             _Dir = "/Images/demon.png";
             _Dmg = 50;
             _Acc = 0.7;
+            _Speed = 200;
             _Def = 20;
+            
         }
+
+        public override void ExecuteTurn()
+        {
+            
+        }
+      
     }
 }

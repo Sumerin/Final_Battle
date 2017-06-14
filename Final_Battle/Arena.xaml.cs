@@ -26,18 +26,43 @@ namespace Final_Battle
 
 
         public Character Boss { get; set; }
+
+
+        private List<Character> Characters = new List<Character>();
        
         public Arena(Character first, Character second, Character third, Character foruth)
         {
             InitializeComponent();
             this.DataContext = this;
-            First = first;
-            Second = second;
-            Third = third;
-            Fourth = foruth;
+            this.First = first;
+            this.Second = second;
+            this.Third = third;
+            this.Fourth = foruth;
+
+            this.Boss = new Demon();
+
+            Characters.Add(first);
+            Characters.Add(second);
+            Characters.Add(third);
+            Characters.Add(Fourth);
+
+            Characters.Add(this.Boss);
 
 
-            Boss = new Demon();
+           
+
+        }
+
+        private async void StartRound(object sender, RoutedEventArgs e)
+        {
+            StartRoundButton.IsEnabled = false;
+            Characters.Sort();
+            LogBlock.Text += "Round Began!\n";
+            foreach (var item in Characters)
+            {
+                await Task.Run(() => item.ExecuteTurn());
+            }
+            StartRoundButton.IsEnabled = true;
         }
     }
 }

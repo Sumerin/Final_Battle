@@ -18,5 +18,6 @@ namespace Final_Battle
             _Def = 20;
            
         }
+        
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace Final_Battle
 {
@@ -20,7 +21,6 @@ namespace Final_Battle
             _Acc = 0.5;
             _Speed = 5;
             _Def = 20;
-           
         }
     }
 }
