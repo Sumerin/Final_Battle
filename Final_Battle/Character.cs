@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Diagnostics;
 
 namespace Final_Battle
 {
@@ -58,11 +59,14 @@ namespace Final_Battle
                 return "Defense: " + _Def;
             }
         }
-        public Brush Background {
-            get {
+        public Brush Background
+        {
+            get
+            {
                 return _Background;
             }
-            set { 
+            set
+            {
                 _Background = value;
                 NotifyPropertyChanged("Background");
             }
@@ -102,21 +106,44 @@ namespace Final_Battle
         protected bool isDone = true;
 
 
+        public static List<Character> Heros;
+        public static Character Boss;
+
         public Character()
         {
             _CharacterContextMenu = new ContextMenu();
 
-            var attack = new MenuItem() { Header = "Attack" };
+            /* var attack = new MenuItem() { Header = "Attack" };
 
-            attack.AddHandler(MenuItem.ClickEvent, new RoutedEventHandler(Attack));
+             attack.AddHandler(MenuItem.ClickEvent, new RoutedEventHandler(Attack));
 
-            _CharacterContextMenu.Items.Add(attack);
+             _CharacterContextMenu.Items.Add(attack);*/
 
             //Background = TURNCOLOR;
         }
 
-        protected virtual void Attack(object sender, RoutedEventArgs e)
+
+        public void AddMenuItem(MenuItem item, Action<object, RoutedEventArgs> action)
         {
+            item.AddHandler(MenuItem.ClickEvent, new RoutedEventHandler(action));
+
+            _CharacterContextMenu.Items.Add(item);
+        }
+
+        public virtual void Attack(Character enemy)
+        {
+            try
+            {
+
+                enemy.Hp = (enemy._Hp - this._Dmg).ToString();
+            }
+            catch (Exception e)
+            {
+
+                Debug.WriteLine("Attacker:{0} Target:{1}  parse:{3} ex:{2} ", this.GetType(), enemy.GetType(), e.Message, enemy.Hp);
+            }
+
+
             isDone = true;
             NotifyPropertyChanged("CharacterContextMenu");
         }
