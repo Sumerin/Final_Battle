@@ -17,8 +17,10 @@ namespace Final_Battle
         private readonly Brush YIELDCOLOR = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
         private readonly Brush TURNCOLOR = Brushes.Green;
 
+        protected static Random random = new Random();
 
-        #region property
+
+        #region Bind Data
         public string Hp
         {
             get
@@ -27,7 +29,6 @@ namespace Final_Battle
             }
             set
             {
-                _Hp = Int32.Parse(value);
                 NotifyPropertyChanged("Hp");
             }
         }
@@ -98,12 +99,14 @@ namespace Final_Battle
         protected int _Dmg;
         protected double _Acc;
         protected int _Speed;
-        protected int _Def;
+        protected double _Def;
         protected string _Dir;
         protected Brush _Background;
         protected ContextMenu _CharacterContextMenu;
+        protected string power;
 
         protected bool isDone = true;
+        public bool isFriendly = true;
 
 
         public static List<Character> Heros;
@@ -130,17 +133,33 @@ namespace Final_Battle
             _CharacterContextMenu.Items.Add(item);
         }
 
-        public virtual void Attack(Character enemy)
+        public void AddMenuItem(Action<object, RoutedEventArgs> action)
         {
-            try
+            if (!string.IsNullOrEmpty(power))
             {
-
-                enemy.Hp = (enemy._Hp - this._Dmg).ToString();
+                var special = new MenuItem() { Header = power };
+                AddMenuItem(special, action);
             }
-            catch (Exception e)
-            {
+        }
 
-                Debug.WriteLine("Attacker:{0} Target:{1}  parse:{3} ex:{2} ", this.GetType(), enemy.GetType(), e.Message, enemy.Hp);
+        #region Movment/Reaction
+        public virtual void Attack(Character enemy, Action<string> Log)
+        {
+
+            if (random.NextDouble() < _Acc)
+            {
+                Log(GetType().Name + " Attacks!!");
+                double multiple = random.NextDouble();
+                if (multiple > 0.8) 
+                {
+                    Log("CRITICAL");
+                }
+                int attackPower = (int)Math.Round(_Dmg * multiple);
+                enemy.DealDamage(attackPower, Log);
+            }
+            else
+            {
+                Log(GetType().Name + " missed :c");
             }
 
 
@@ -148,6 +167,30 @@ namespace Final_Battle
             NotifyPropertyChanged("CharacterContextMenu");
         }
 
+        public virtual void Special(List<Character> Characters, Action<string> Log)
+        {
+            isDone = true;
+            NotifyPropertyChanged("CharacterContextMenu");
+        }
+
+        public void DealDamage(int AttackPower, Action<string> Log)
+        {
+            int dmgTaken = (int)Math.Round(AttackPower / _Def);
+            Log(GetType().Name + " Take dmg: " + dmgTaken);
+            this._Hp = this._Hp - dmgTaken;
+            this.Hp = "";
+        }
+
+        public void RaiseDefense(double buff)
+        {
+            _Def += buff;
+        }
+        public void GrantHealth(int actualHeal)
+        {
+            _Hp += actualHeal;
+            Hp = "0";
+        }
+        #endregion
 
         public virtual void ExecuteTurn()
         {
@@ -165,8 +208,7 @@ namespace Final_Battle
 
         }
 
-
-
+        #region interface implementaion
         public int CompareTo(Character other)
         {
             if (other == null)
@@ -186,5 +228,8 @@ namespace Final_Battle
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
             }
         }
+
+        #endregion
+
     }
 }

@@ -53,10 +53,9 @@ namespace Final_Battle
             foreach (var mob in Characters)
             {
                 var attack = new MenuItem() { Header = "Attack" };
-                var special = new MenuItem() { Header = "Special" };
 
                 mob.AddMenuItem(attack, AttackEvent);
-                mob.AddMenuItem(special, SpecialEvent);
+                mob.AddMenuItem(SpecialEvent);
             }
 
 
@@ -69,6 +68,7 @@ namespace Final_Battle
         {
             StartRoundButton.IsEnabled = false;
             Characters.Sort();
+            Characters.Reverse();
             AddLog("Round Began!");
             foreach (var item in Characters)
             {
@@ -80,15 +80,13 @@ namespace Final_Battle
         private void AttackEvent(object sender, RoutedEventArgs e)
         {
             Debug.WriteLine(sender.GetType());
-            AddLog(activeHero.GetType().Name + " Attacks!");
-            activeHero.Attack(Boss);
+            activeHero.Attack(Boss, AddLog);
 
         }
         private void SpecialEvent(object sender, RoutedEventArgs e)
         {
             Debug.WriteLine(sender.GetType());
-            AddLog(activeHero.GetType().Name + " Special Skill");
-            //activeHero.Attack(Boss);
+            activeHero.Special(Characters, AddLog);
 
         }
         #endregion
