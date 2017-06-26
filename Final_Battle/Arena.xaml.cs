@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Diagnostics;
+using System.Windows.Threading;
 
 namespace Final_Battle
 {
@@ -33,6 +34,7 @@ namespace Final_Battle
         private List<Character> Characters = new List<Character>();
         private Character activeHero;
         private StringBuilder builder = new StringBuilder();
+        private object logMonitor = new object();
 
         public Arena(Character first, Character second, Character third, Character foruth)
         {
@@ -43,7 +45,7 @@ namespace Final_Battle
             this.Third = third;
             this.Fourth = foruth;
 
-            this.Boss = new Demon();
+
 
             Characters.Add(first);
             Characters.Add(second);
@@ -58,17 +60,17 @@ namespace Final_Battle
                 mob.AddMenuItem(SpecialEvent);
             }
 
-
+            Boss = new Rabbit(Characters, AddLog);
             Characters.Add(this.Boss);
-
+            Characters.Sort();
+            Characters.Reverse();
         }
 
         #region Handlers
         private async void StartRound(object sender, RoutedEventArgs e)
         {
             StartRoundButton.IsEnabled = false;
-            Characters.Sort();
-            Characters.Reverse();
+
             AddLog("Round Began!");
             foreach (var item in Characters)
             {
@@ -79,23 +81,30 @@ namespace Final_Battle
         }
         private void AttackEvent(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine(sender.GetType());
-            activeHero.Attack(Boss, AddLog);
+
+            this.activeHero.Attack(Boss, AddLog);
 
         }
         private void SpecialEvent(object sender, RoutedEventArgs e)
         {
             Debug.WriteLine(sender.GetType());
-            activeHero.Special(Characters, AddLog);
+            this.activeHero.Special(Characters, AddLog);
 
         }
         #endregion
 
         private void AddLog(string log)
         {
-            builder.Append(log);
-            builder.Append("\n");
-            LogBlock.Text = builder.ToString();
+            lock (logMonitor)
+            {
+                Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.Normal,
+                    new Action(() =>
+                {
+                    this.builder.Append(log);
+                    this.builder.Append("\n");
+                    LogBlock.Text = builder.ToString();
+                }));
+            }
         }
     }
 }

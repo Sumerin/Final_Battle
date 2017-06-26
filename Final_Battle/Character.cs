@@ -107,6 +107,7 @@ namespace Final_Battle
 
         protected bool isDone = true;
         public bool isFriendly = true;
+        public bool isAlive = true;
 
 
         public static List<Character> Heros;
@@ -115,14 +116,6 @@ namespace Final_Battle
         public Character()
         {
             _CharacterContextMenu = new ContextMenu();
-
-            /* var attack = new MenuItem() { Header = "Attack" };
-
-             attack.AddHandler(MenuItem.ClickEvent, new RoutedEventHandler(Attack));
-
-             _CharacterContextMenu.Items.Add(attack);*/
-
-            //Background = TURNCOLOR;
         }
 
 
@@ -176,9 +169,13 @@ namespace Final_Battle
         public void DealDamage(int AttackPower, Action<string> Log)
         {
             int dmgTaken = (int)Math.Round(AttackPower / _Def);
+
             Log(GetType().Name + " Take dmg: " + dmgTaken);
+
             this._Hp = this._Hp - dmgTaken;
             this.Hp = "";
+
+            isAlive = this._Hp > 0;
         }
 
         public void RaiseDefense(double buff)
@@ -194,18 +191,20 @@ namespace Final_Battle
 
         public virtual void ExecuteTurn()
         {
-            Background = TURNCOLOR;
-            isDone = false;
-
-            NotifyPropertyChanged("CharacterContextMenu");
-
-            while (!isDone)
+            if (isAlive)
             {
-                Thread.Sleep(200);
+                Background = TURNCOLOR;
+                isDone = false;
+
+                NotifyPropertyChanged("CharacterContextMenu");
+
+                while (!isDone)
+                {
+                    Thread.Sleep(200);
+                }
+
+                Background = YIELDCOLOR;
             }
-
-            Background = YIELDCOLOR;
-
         }
 
         #region interface implementaion

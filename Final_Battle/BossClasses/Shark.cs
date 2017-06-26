@@ -3,24 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Threading;
 
 namespace Final_Battle
 {
-    class Demon : Character
+    public class Shark : Character
     {
         List<Character> hero;
         Action<string> Log;
-        public Demon(List<Character> hero, Action<string> Log)
+        public Shark(List<Character> hero, Action<string> Log)
         {
-            _Hp = 2000;
-            _Dir = "/Images/demon.png";
-            _Dmg = 50;
-            _Acc = 0.7;
-            _Speed = 5;
-            _Def = 1.7;
+            this._Hp = 1200;
+            this._Dir = "/Images/shark.png";
+            this._Dmg = 300;
+            this._Acc = 0.1;
+            this._Speed = 1;
+            this._Def = 1.5;
 
-            isFriendly = false;
+            this.isFriendly = false;
             this.hero = new List<Character>(hero);
             this.Log = Log;
         }
@@ -29,21 +28,22 @@ namespace Final_Battle
         {
             foreach (var item in this.hero)
             {
+
                 if (item.isAlive)
                 {
                     if (random.NextDouble() < _Acc)
                     {
                         Log(GetType().Name + " Attacks!!");
                         item.DealDamage(_Dmg, Log);
-
                     }
                     else
                     {
                         Log(GetType().Name + " Attack " + item.GetType().Name + " and missed :)");
                     }
+                    break;
                 }
+
             }
         }
-
     }
 }

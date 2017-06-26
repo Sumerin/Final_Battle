@@ -10,14 +10,20 @@ namespace Final_Battle
     {
          public Paladin()
         {
-            _Hp = 120;
+            _Hp = 400;
             _Dir = "/Images/paladin.png";
             _Dmg = 20;
-            _Acc = 0.5;
-            _Speed = 5;
-            _Def = 20;
+            _Acc = 0.7;
+            _Speed = 3;
+            _Def = 1.5;
            
         }
+         public override void ExecuteTurn()
+         {
+             _Hp += 3;
+             Hp = "";
+             base.ExecuteTurn();
+         }
          
     }
 }

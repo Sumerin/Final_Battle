@@ -17,7 +17,7 @@ namespace Final_Battle
             _Dmg = 20;
             _Acc = 0.8;
             _Speed = 5;
-            _Def = 20;
+            _Def = 1.0;
             power = "Full defense";
         }
 

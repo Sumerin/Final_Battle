@@ -58,6 +58,8 @@
       <DependentUpon>Arena.xaml</DependentUpon>
     </Compile>
     <Compile Include="BossClasses\Demon.cs" />
+    <Compile Include="BossClasses\Rabbit.cs" />
+    <Compile Include="BossClasses\Shark.cs" />
     <Compile Include="CharacterClasses\Archer.cs" />
     <Compile Include="CharacterClasses\Choice.cs" />
     <Compile Include="CharacterClasses\Cleric.cs" />
