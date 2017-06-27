@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+using System.Windows.Controls;
 
 namespace Final_Battle
 {
@@ -23,6 +24,9 @@ namespace Final_Battle
             isFriendly = false;
             this.hero = new List<Character>(hero);
             this.Log = Log;
+
+            isDone = false;
+            _CharacterContextMenu.Items.Add(new Label() { Content=BossClasses.BossDescription.Demon});
         }
 
         public override void ExecuteTurn()

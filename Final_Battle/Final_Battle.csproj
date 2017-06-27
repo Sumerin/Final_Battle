@@ -59,6 +59,11 @@
     </Compile>
     <Compile Include="BossClasses\Demon.cs" />
     <Compile Include="BossClasses\Rabbit.cs" />
+    <Compile Include="BossClasses\BossDescription.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BossDescription.resx</DependentUpon>
+    </Compile>
     <Compile Include="BossClasses\Shark.cs" />
     <Compile Include="CharacterClasses\Archer.cs" />
     <Compile Include="CharacterClasses\Choice.cs" />
@@ -103,6 +108,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="BossClasses\BossDescription.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>BossDescription.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="CharacterClasses\PowerDescription.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>PowerDescription.Designer.cs</LastGenOutput>

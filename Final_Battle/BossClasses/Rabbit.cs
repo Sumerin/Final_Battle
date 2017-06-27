@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace Final_Battle
 {
@@ -24,6 +25,9 @@ namespace Final_Battle
             this.Log = Log;
             this.hero.Sort();
             this.hero.Reverse();
+
+            isDone = false;
+            _CharacterContextMenu.Items.Add(new Label() { Content = BossClasses.BossDescription.Rabbit });
         }
 
         public override void ExecuteTurn()
