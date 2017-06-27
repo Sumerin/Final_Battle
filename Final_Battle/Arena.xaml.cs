@@ -70,12 +70,26 @@ namespace Final_Battle
         private async void StartRound(object sender, RoutedEventArgs e)
         {
             StartRoundButton.IsEnabled = false;
-
+            bool isHeroAlive = false;
             AddLog("Round Began!");
             foreach (var item in Characters)
             {
                 activeHero = item;
                 await Task.Run(() => item.ExecuteTurn());
+                if (item != Boss)
+                {
+                    isHeroAlive = item.isAlive ? true : isHeroAlive; //if hero is Alive will be true if dead stay as it was
+                }
+                if(!Boss.isAlive)
+                {
+                    AddLog("YOU HAVE WON!!");
+                    return;
+                }
+            }
+            if (!isHeroAlive)
+            {
+                AddLog("YOU HAVE LOSE!!");
+                return;
             }
             StartRoundButton.IsEnabled = true;
         }
