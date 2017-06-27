@@ -38,6 +38,8 @@ namespace Final_Battle
 
         public Arena(Character first, Character second, Character third, Character foruth)
         {
+            Random random = new Random();
+
             InitializeComponent();
             this.DataContext = this;
             this.First = first;
@@ -59,8 +61,18 @@ namespace Final_Battle
                 mob.AddMenuItem(attack, AttackEvent);
                 mob.AddMenuItem(SpecialEvent);
             }
-
-            Boss = new Rabbit(Characters, AddLog);
+            switch (random.Next(3))
+            {
+                case 0:
+                    Boss = new Rabbit(Characters, AddLog);
+                    break;
+                case 1:
+                    Boss = new Demon(Characters, AddLog);
+                    break;
+                case 2:
+                    Boss = new Shark(Characters, AddLog);
+                    break;
+            }
             Characters.Add(this.Boss);
             Characters.Sort();
             Characters.Reverse();
@@ -80,7 +92,7 @@ namespace Final_Battle
                 {
                     isHeroAlive = item.isAlive ? true : isHeroAlive; //if hero is Alive will be true if dead stay as it was
                 }
-                if(!Boss.isAlive)
+                if (!Boss.isAlive)
                 {
                     AddLog("YOU HAVE WON!!");
                     return;
