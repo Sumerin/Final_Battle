@@ -19,6 +19,7 @@ namespace Final_Battle
             _Speed = 5;
             _Def = 20;
             power = "Charged Attak";
+            _PowerDescription = CharacterClasses.PowerDescription.ChargedAttack;
 
         }
         public override void Attack(Character enemy, Action<string> Log)

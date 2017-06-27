@@ -19,6 +19,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="150"/>
@@ -66,6 +67,9 @@
             <Label Grid.Column="0" Grid.Row="7"
                    Foreground="Red"
                 Content="{Binding First.Defense}"/>
+            <TextBlock Grid.Column="0" Grid.Row="8" Margin="10"
+                   Foreground="Red" TextWrapping="Wrap"
+                Text="{Binding First.PowerDescription}"/>
 
 
             <!--Second Character-->
@@ -95,6 +99,9 @@
             <Label Grid.Column="1" Grid.Row="7"
                    Foreground="Red"
                 Content="{Binding Second.Defense}"/>
+            <TextBlock Grid.Column="1" Grid.Row="8" Margin="10"
+                   Foreground="Red" TextWrapping="Wrap"
+                Text="{Binding Second.PowerDescription}"/>
 
             <!--Third Charachetr-->
             <ComboBox Grid.Column="2" Grid.Row="1"
@@ -125,6 +132,10 @@
             <Label Grid.Column="2" Grid.Row="7"
                    Foreground="Red"
                 Content="{Binding Third.Defense}"/>
+            <TextBlock Grid.Column="2" Grid.Row="8" Margin="10"
+                   Foreground="Red" TextWrapping="Wrap"
+                Text="{Binding Third.PowerDescription}"/>
+            
             <!--Fourth Character-->
             <ComboBox Grid.Column="3" Grid.Row="1"
                        x:Name="Check4"
@@ -154,6 +165,9 @@
             <Label Grid.Column="3" Grid.Row="7"
                    Foreground="Red"
                 Content="{Binding Fourth.Defense}"/>
+            <TextBlock Grid.Column="3" Grid.Row="8" Margin="10"
+                   Foreground="Red" TextWrapping="Wrap"
+                Text="{Binding Fourth.PowerDescription}"/>
 
         </Grid>
     </Viewbox>

@@ -19,12 +19,13 @@ namespace Final_Battle
             _Speed = 5;
             _Def = 20;
             power = "Divine Heal";
+            _PowerDescription = CharacterClasses.PowerDescription.DivineHeal;
         }
          public override void Special(List<Character> Characters, Action<string> Log)
          {
              foreach (var chara in Characters)
              {
-                 if (chara.isFriendly)
+                 if (chara.isFriendly && chara.isAlive)
                  {
                      int actualHeal = HEAL + random.Next(MAXHEAL);
                      Log(chara.GetType().Name + "Recivied " + actualHeal + " health");

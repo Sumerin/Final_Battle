@@ -91,7 +91,13 @@ namespace Final_Battle
                 return this._Dir;
             }
         }
-
+        public string PowerDescription
+        {
+            get
+            {
+                return _PowerDescription;
+            }
+        }
         #endregion
 
 
@@ -104,6 +110,7 @@ namespace Final_Battle
         protected Brush _Background;
         protected ContextMenu _CharacterContextMenu;
         protected string power;
+        protected string _PowerDescription;
 
         protected bool isDone = true;
         public bool isFriendly = true;
@@ -143,7 +150,7 @@ namespace Final_Battle
             {
                 Log(GetType().Name + " Attacks!!");
                 double multiple = random.NextDouble();
-                if (multiple > 0.8) 
+                if (multiple > 0.8)
                 {
                     Log("CRITICAL");
                 }

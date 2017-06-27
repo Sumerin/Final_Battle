@@ -65,6 +65,11 @@
     <Compile Include="CharacterClasses\Cleric.cs" />
     <Compile Include="CharacterClasses\Mage.cs" />
     <Compile Include="CharacterClasses\Paladin.cs" />
+    <Compile Include="CharacterClasses\PowerDescription.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PowerDescription.resx</DependentUpon>
+    </Compile>
     <Compile Include="CharacterClasses\Warrior.cs" />
     <Page Include="Arena.xaml">
       <SubType>Designer</SubType>
@@ -98,6 +103,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="CharacterClasses\PowerDescription.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>PowerDescription.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

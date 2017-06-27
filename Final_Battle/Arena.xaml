@@ -4,81 +4,80 @@
         Title="Arena" Height="1000" Width="940"
         WindowStartupLocation="CenterScreen">
     <Viewbox>
-    <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="Images\arenaBackground.jpg" Stretch="Fill"/>
-        </Grid.Background>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="200"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="200"/>
-            <RowDefinition Height="200"/>
-            <RowDefinition Height="200"/>
-            <RowDefinition Height="200"/>
-            <RowDefinition Height="200"/>
-        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.Background>
+                <ImageBrush ImageSource="Images\arenaBackground.jpg" Stretch="Fill"/>
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="200"/>
+            </Grid.RowDefinitions>
 
 
-        <StackPanel Grid.Column="0" Grid.Row="0" 
+            <StackPanel Grid.Column="0" Grid.Row="0" 
                     DataContext="{Binding First}"
                     ContextMenu="{Binding CharacterContextMenu}"
                     Background="{Binding Background}">
 
-            <Label Content="{Binding Hp}"/>
-            <Image Source="{Binding Dir}"/>
-        </StackPanel>
+                <Label Content="{Binding Hp}"/>
+                <Image Source="{Binding Dir}"/>
+            </StackPanel>
 
-        <StackPanel Grid.Column="0" Grid.Row="1"
+            <StackPanel Grid.Column="0" Grid.Row="1"
                         DataContext="{Binding Second}" 
                         ContextMenu="{Binding CharacterContextMenu}"
                         Background="{Binding Background}">
-            <Label Content="{Binding Hp}"/>
-            <Image Source="{Binding Dir}"/>
-        </StackPanel>
+                <Label Content="{Binding Hp}"/>
+                <Image Source="{Binding Dir}"/>
+            </StackPanel>
 
-        <StackPanel Grid.Column="0" Grid.Row="2" 
+            <StackPanel Grid.Column="0" Grid.Row="2" 
                     DataContext="{Binding Third}"
                     ContextMenu="{Binding CharacterContextMenu}"
                     Background="{Binding Background}">
-            <Label Content="{Binding Hp}"/>
-            <Image Source="{Binding Dir}"/>
-        </StackPanel>
+                <Label Content="{Binding Hp}"/>
+                <Image Source="{Binding Dir}"/>
+            </StackPanel>
 
-        <StackPanel Grid.Column="0" Grid.Row="3" 
+            <StackPanel Grid.Column="0" Grid.Row="3" 
                     DataContext="{Binding Fourth}"
                     ContextMenu="{Binding CharacterContextMenu}"
                     Background="{Binding Background}">
-            <Label Content="{Binding Hp}"/>
-            <Image Source="{Binding Dir}"/>
-        </StackPanel>
+                <Label Content="{Binding Hp}"/>
+                <Image Source="{Binding Dir}"/>
+            </StackPanel>
 
 
 
 
-        <StackPanel Grid.Column="2" Grid.Row="0" Grid.RowSpan="3" 
+            <StackPanel Grid.Column="2" Grid.Row="0" Grid.RowSpan="3" 
                     DataContext="{Binding Boss}">
-            <Label Content="{Binding Hp}"/>
-            <Image Source="{Binding Dir}"/>
-        </StackPanel>
-        <ScrollViewer 
-            Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="5">
-            <TextBlock x:Name="LogBlock"
-                       ScrollViewer.CanContentScroll="True"
-                        ScrollViewer.VerticalScrollBarVisibility="Auto" 
-                        TextWrapping="Wrap"
-        		        Background="White" Height="200" Width="400"/>
-        </ScrollViewer>
+                <Label Content="{Binding Hp}"/>
+                <Image Source="{Binding Dir}"/>
+            </StackPanel>
 
-        <Button Name="StartRoundButton" 
+            <ScrollViewer     
+                Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="5">
+                <TextBlock x:Name="LogBlock"
+                        TextWrapping="Wrap"
+        		        Background="White"/>
+            </ScrollViewer>
+
+            <Button Name="StartRoundButton" 
             Click="StartRound" 
             Grid.Column="2"  Grid.Row="4"
                 FontSize="33" FontWeight="Bold">
-            Start Round
-        </Button>
+                Start Round
+            </Button>
 
-    </Grid>
+        </Grid>
     </Viewbox>
 </Window>

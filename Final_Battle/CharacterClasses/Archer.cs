@@ -10,7 +10,7 @@ namespace Final_Battle
     {
         private int timer;
         private const int RESET = 3;
-        private const int POWERMULTIPLE = 3;
+        private const int POWERMULTIPLE = 4;
         public Archer()
         {
             _Hp = 200;
@@ -20,6 +20,7 @@ namespace Final_Battle
             _Speed = 7;
             _Def = 20;
             power = "Piercing Arrow";
+            _PowerDescription = CharacterClasses.PowerDescription.PiercingArrow;
 
         }
 

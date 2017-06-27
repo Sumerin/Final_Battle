@@ -19,6 +19,7 @@ namespace Final_Battle
             _Speed = 5;
             _Def = 1.0;
             power = "Full defense";
+            _PowerDescription = CharacterClasses.PowerDescription.FullDefense;
         }
 
         public override void Special(List<Character> Characters, Action<string> Log)
