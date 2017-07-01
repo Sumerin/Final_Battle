@@ -12,22 +12,22 @@ namespace Final_Battle
 
         public Mage()
         {
-            _Hp = 200;
-            _Dir = "/Images/mage.png";
-            _Dmg = 20;
-            _Acc = 0.9;
-            _Speed = 5;
-            _Def = 20;
+            _hp = 200;
+            _dir = "/Images/mage.png";
+            _dmg = 20;
+            _acc = 0.9;
+            _speed = 5;
+            _def = 20;
             power = "Charged Attak";
-            _PowerDescription = CharacterClasses.PowerDescription.ChargedAttack;
+            _powerDescription = CharacterClasses.PowerDescription.ChargedAttack;
 
         }
         public override void Attack(Character enemy, Action<string> Log)
         {
-            int baseDmg = _Dmg;
-            _Dmg *= powerMultiple;
+            int baseDmg = _dmg;
+            _dmg *= powerMultiple;
             base.Attack(enemy, Log);
-            _Dmg = baseDmg;
+            _dmg = baseDmg;
             powerMultiple = 1;
         }
         public override void Special(List<Character> Characters, Action<string> Log)

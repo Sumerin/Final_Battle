@@ -13,12 +13,12 @@ namespace Final_Battle
         Action<string> Log;
         public Rabbit(List<Character> hero, Action<string> Log)
         {
-            this._Hp = 1200;
-            this._Dir = "/Images/rabbit.png";
-            this._Dmg = 100;
-            this._Acc = 1.0;
-            this._Speed = 100;
-            this._Def = 1.1;
+            this._hp = 1200;
+            this._dir = "/Images/rabbit.png";
+            this._dmg = 100;
+            this._acc = 1.0;
+            this._speed = 100;
+            this._def = 1.1;
 
             this.isFriendly = false;
             this.hero = new List<Character>(hero);
@@ -27,7 +27,7 @@ namespace Final_Battle
             this.hero.Reverse();
 
             isDone = false;
-            _CharacterContextMenu.Items.Add(new Label() { Content = BossClasses.BossDescription.Rabbit });
+            _characterContextMenu.Items.Add(new Label() { Content = BossClasses.BossDescription.Rabbit });
         }
 
         public override void ExecuteTurn()
@@ -37,8 +37,7 @@ namespace Final_Battle
 
                 if (item.isAlive)
                 {
-                    Log(GetType().Name + " Attacks!!");
-                    item.DealDamage(_Dmg, Log);
+                    Attack(item, Log);
                     break;
                 }
             }

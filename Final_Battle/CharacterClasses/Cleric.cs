@@ -12,14 +12,14 @@ namespace Final_Battle
         private const int MAXHEAL = 8;
          public Cleric()
         {
-            _Hp = 200;
-            _Dir = "/Images/cleric.png";
-            _Dmg = 20;
-            _Acc = 0.5;
-            _Speed = 5;
-            _Def = 20;
+            _hp = 200;
+            _dir = "/Images/cleric.png";
+            _dmg = 20;
+            _acc = 0.5;
+            _speed = 5;
+            _def = 20;
             power = "Divine Heal";
-            _PowerDescription = CharacterClasses.PowerDescription.DivineHeal;
+            _powerDescription = CharacterClasses.PowerDescription.DivineHeal;
         }
          public override void Special(List<Character> Characters, Action<string> Log)
          {

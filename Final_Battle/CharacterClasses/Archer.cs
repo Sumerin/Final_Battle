@@ -13,14 +13,14 @@ namespace Final_Battle
         private const int POWERMULTIPLE = 4;
         public Archer()
         {
-            _Hp = 200;
-            _Dir = "/Images/archer.png";
-            _Dmg = 20;
-            _Acc = 0.5;
-            _Speed = 7;
-            _Def = 20;
+            _hp = 200;
+            _dir = "/Images/archer.png";
+            _dmg = 20;
+            _acc = 0.5;
+            _speed = 7;
+            _def = 20;
             power = "Piercing Arrow";
-            _PowerDescription = CharacterClasses.PowerDescription.PiercingArrow;
+            _powerDescription = CharacterClasses.PowerDescription.PiercingArrow;
 
         }
 
@@ -33,7 +33,7 @@ namespace Final_Battle
                 {
                     if (!item.isFriendly)
                     {
-                        item.DealDamage(_Dmg * POWERMULTIPLE, Log);
+                        item.DealDamage(_dmg * POWERMULTIPLE, Log);
                     }
 
                 }

@@ -13,19 +13,19 @@ namespace Final_Battle
         Action<string> Log;
         public Shark(List<Character> hero, Action<string> Log)
         {
-            this._Hp = 1200;
-            this._Dir = "/Images/shark.png";
-            this._Dmg = 300;
-            this._Acc = 0.1;
-            this._Speed = 1;
-            this._Def = 1.5;
+            this._hp = 1200;
+            this._dir = "/Images/shark.png";
+            this._dmg = 300;
+            this._acc = 0.1;
+            this._speed = 1;
+            this._def = 1.5;
 
             this.isFriendly = false;
             this.hero = new List<Character>(hero);
             this.Log = Log;
 
             isDone = false;
-            _CharacterContextMenu.Items.Add(new Label() { Content = BossClasses.BossDescription.Shark });
+            _characterContextMenu.Items.Add(new Label() { Content = BossClasses.BossDescription.Shark });
         }
 
         public override void ExecuteTurn()
@@ -35,16 +35,7 @@ namespace Final_Battle
 
                 if (item.isAlive)
                 {
-                    if (random.NextDouble() < _Acc)
-                    {
-                        Log(GetType().Name + " Attacks!!");
-                        item.DealDamage(_Dmg, Log);
-                    }
-                    else
-                    {
-                        Log(GetType().Name + " Attack " + item.GetType().Name + " and missed :)");
-                    }
-                    break;
+                    Attack(item, Log);
                 }
 
             }

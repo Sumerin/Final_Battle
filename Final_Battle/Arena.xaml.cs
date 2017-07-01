@@ -31,7 +31,7 @@ namespace Final_Battle
         #endregion
 
 
-        private List<Character> Characters = new List<Character>();
+        private List<Character> characters = new List<Character>();
         private Character activeHero;
         private StringBuilder builder = new StringBuilder();
         private object logMonitor = new object();
@@ -49,12 +49,12 @@ namespace Final_Battle
 
 
 
-            Characters.Add(first);
-            Characters.Add(second);
-            Characters.Add(third);
-            Characters.Add(Fourth);
+            characters.Add(first);
+            characters.Add(second);
+            characters.Add(third);
+            characters.Add(Fourth);
 
-            foreach (var mob in Characters)
+            foreach (var mob in characters)
             {
                 var attack = new MenuItem() { Header = "Attack" };
 
@@ -64,18 +64,18 @@ namespace Final_Battle
             switch (random.Next(3))
             {
                 case 0:
-                    Boss = new Rabbit(Characters, AddLog);
+                    Boss = new Rabbit(characters, AddLog);
                     break;
                 case 1:
-                    Boss = new Demon(Characters, AddLog);
+                    Boss = new Demon(characters, AddLog);
                     break;
                 case 2:
-                    Boss = new Shark(Characters, AddLog);
+                    Boss = new Shark(characters, AddLog);
                     break;
             }
-            Characters.Add(this.Boss);
-            Characters.Sort();
-            Characters.Reverse();
+            characters.Add(this.Boss);
+            characters.Sort();
+            characters.Reverse();
         }
 
         #region Handlers
@@ -84,7 +84,7 @@ namespace Final_Battle
             StartRoundButton.IsEnabled = false;
             bool isHeroAlive = false;
             AddLog("Round Began!");
-            foreach (var item in Characters)
+            foreach (var item in characters)
             {
                 activeHero = item;
                 await Task.Run(() => item.ExecuteTurn());
@@ -114,7 +114,7 @@ namespace Final_Battle
         private void SpecialEvent(object sender, RoutedEventArgs e)
         {
             Debug.WriteLine(sender.GetType());
-            this.activeHero.Special(Characters, AddLog);
+            this.activeHero.Special(characters, AddLog);
 
         }
         #endregion

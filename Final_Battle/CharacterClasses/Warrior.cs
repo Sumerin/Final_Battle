@@ -12,14 +12,14 @@ namespace Final_Battle
         private const double BUFF = 0.2;
         public Warrior()
         {
-            _Hp = 200;
-            _Dir = "/Images/Warrior.png";
-            _Dmg = 20;
-            _Acc = 0.8;
-            _Speed = 5;
-            _Def = 1.0;
+            _hp = 200;
+            _dir = "/Images/Warrior.png";
+            _dmg = 20;
+            _acc = 0.8;
+            _speed = 5;
+            _def = 1.0;
             power = "Full defense";
-            _PowerDescription = CharacterClasses.PowerDescription.FullDefense;
+            _powerDescription = CharacterClasses.PowerDescription.FullDefense;
         }
 
         public override void Special(List<Character> Characters, Action<string> Log)

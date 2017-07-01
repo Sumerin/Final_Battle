@@ -25,7 +25,7 @@ namespace Final_Battle
         {
             get
             {
-                return "HP: " + _Hp;
+                return "HP: " + _hp;
             }
             set
             {
@@ -36,39 +36,39 @@ namespace Final_Battle
         {
             get
             {
-                return "Damage: " + _Dmg;
+                return "Damage: " + _dmg;
             }
         }
         public string Acc
         {
             get
             {
-                return "Acc: " + _Acc;
+                return "Acc: " + _acc;
             }
         }
         public string Speed
         {
             get
             {
-                return "Speed: " + _Speed;
+                return "Speed: " + _speed;
             }
         }
         public string Defense
         {
             get
             {
-                return "Defense: " + _Def;
+                return "Defense: " + _def;
             }
         }
         public Brush Background
         {
             get
             {
-                return _Background;
+                return _background;
             }
             set
             {
-                _Background = value;
+                _background = value;
                 NotifyPropertyChanged("Background");
             }
         }
@@ -78,7 +78,7 @@ namespace Final_Battle
             {
                 if (!isDone)
                 {
-                    return _CharacterContextMenu;
+                    return _characterContextMenu;
                 }
                 return null;
             }
@@ -88,41 +88,38 @@ namespace Final_Battle
         {
             get
             {
-                return this._Dir;
+                return this._dir;
             }
         }
         public string PowerDescription
         {
             get
             {
-                return _PowerDescription;
+                return _powerDescription;
             }
         }
         #endregion
 
 
-        protected int _Hp;
-        protected int _Dmg;
-        protected double _Acc;
-        protected int _Speed;
-        protected double _Def;
-        protected string _Dir;
-        protected Brush _Background;
-        protected ContextMenu _CharacterContextMenu;
+        protected int _hp;
+        protected int _dmg;
+        protected double _acc;
+        protected int _speed;
+        protected double _def;
+        protected string _dir;
+        protected Brush _background;
+        protected ContextMenu _characterContextMenu;
         protected string power;
-        protected string _PowerDescription;
+        protected string _powerDescription;
 
         protected bool isDone = true;
         public bool isFriendly = true;
         public bool isAlive = true;
 
 
-        public static List<Character> Heros;
-        public static Character Boss;
-
         public Character()
         {
-            _CharacterContextMenu = new ContextMenu();
+            _characterContextMenu = new ContextMenu();
         }
 
 
@@ -130,7 +127,7 @@ namespace Final_Battle
         {
             item.AddHandler(MenuItem.ClickEvent, new RoutedEventHandler(action));
 
-            _CharacterContextMenu.Items.Add(item);
+            _characterContextMenu.Items.Add(item);
         }
 
         public void AddMenuItem(Action<object, RoutedEventArgs> action)
@@ -146,7 +143,7 @@ namespace Final_Battle
         public virtual void Attack(Character enemy, Action<string> Log)
         {
 
-            if (random.NextDouble() < _Acc)
+            if (random.NextDouble() < _acc)
             {
                 Log(GetType().Name + " Attacks!!");
                 double multiple = random.NextDouble();
@@ -154,7 +151,7 @@ namespace Final_Battle
                 {
                     Log("CRITICAL");
                 }
-                int attackPower = (int)Math.Round(_Dmg * multiple);
+                int attackPower = (int)Math.Round(_dmg * multiple);
                 enemy.DealDamage(attackPower, Log);
             }
             else
@@ -175,23 +172,23 @@ namespace Final_Battle
 
         public void DealDamage(int AttackPower, Action<string> Log)
         {
-            int dmgTaken = (int)Math.Round(AttackPower / _Def);
+            int dmgTaken = (int)Math.Round(AttackPower / _def);
 
             Log(GetType().Name + " Take dmg: " + dmgTaken);
 
-            this._Hp = this._Hp - dmgTaken;
+            this._hp = this._hp - dmgTaken;
             this.Hp = "";
 
-            isAlive = this._Hp > 0;
+            isAlive = this._hp > 0;
         }
 
         public void RaiseDefense(double buff)
         {
-            _Def += buff;
+            _def += buff;
         }
         public void GrantHealth(int actualHeal)
         {
-            _Hp += actualHeal;
+            _hp += actualHeal;
             Hp = "0";
         }
         #endregion
@@ -222,7 +219,7 @@ namespace Final_Battle
                 return 1;
             }
 
-            return _Speed.CompareTo(other._Speed);
+            return _speed.CompareTo(other._speed);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
