@@ -15,10 +15,10 @@ namespace Final_Battle
         {
             _hp = 200;
             _dir = "/Images/archer.png";
-            _dmg = 20;
+            _dmg = 45;
             _acc = 0.5;
             _speed = 7;
-            _def = 20;
+            _def = 0.5;
             power = "Piercing Arrow";
             _powerDescription = CharacterClasses.PowerDescription.PiercingArrow;
 

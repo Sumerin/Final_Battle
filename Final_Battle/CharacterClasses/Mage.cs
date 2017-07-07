@@ -12,12 +12,12 @@ namespace Final_Battle
 
         public Mage()
         {
-            _hp = 200;
+            _hp = 120;
             _dir = "/Images/mage.png";
-            _dmg = 20;
+            _dmg = 60;
             _acc = 0.9;
             _speed = 5;
-            _def = 20;
+            _def = 0.4;
             power = "Charged Attak";
             _powerDescription = CharacterClasses.PowerDescription.ChargedAttack;
 

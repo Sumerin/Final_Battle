@@ -88,6 +88,15 @@ namespace Final_Battle.CharacterClasses {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Automaticly regenerate health each turn.
+        /// </summary>
+        internal static string HealthRegen {
+            get {
+                return ResourceManager.GetString("HealthRegen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Every third charge of piercing arrow attack with x4 more power..
         /// </summary>
         internal static string PiercingArrow {

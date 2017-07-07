@@ -126,6 +126,9 @@
   <data name="FullDefense" xml:space="preserve">
     <value>Rise the defense by 0.2 to all teammates each time.</value>
   </data>
+  <data name="HealthRegen" xml:space="preserve">
+    <value>Automaticly regenerate health each turn</value>
+  </data>
   <data name="PiercingArrow" xml:space="preserve">
     <value>Every third charge of piercing arrow attack with x4 more power.</value>
   </data>

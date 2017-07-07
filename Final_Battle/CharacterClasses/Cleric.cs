@@ -14,10 +14,10 @@ namespace Final_Battle
         {
             _hp = 200;
             _dir = "/Images/cleric.png";
-            _dmg = 20;
+            _dmg = 10;
             _acc = 0.5;
-            _speed = 5;
-            _def = 20;
+            _speed = 3;
+            _def = 0.6;
             power = "Divine Heal";
             _powerDescription = CharacterClasses.PowerDescription.DivineHeal;
         }

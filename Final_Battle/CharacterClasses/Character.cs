@@ -27,10 +27,6 @@ namespace Final_Battle
             {
                 return "HP: " + _hp;
             }
-            set
-            {
-                NotifyPropertyChanged("Hp");
-            }
         }
         public string Damage
         {
@@ -83,7 +79,6 @@ namespace Final_Battle
                 return null;
             }
         }
-
         public string Dir
         {
             get
@@ -122,7 +117,6 @@ namespace Final_Battle
             _characterContextMenu = new ContextMenu();
         }
 
-
         public void AddMenuItem(MenuItem item, Action<object, RoutedEventArgs> action)
         {
             item.AddHandler(MenuItem.ClickEvent, new RoutedEventHandler(action));
@@ -132,7 +126,7 @@ namespace Final_Battle
 
         public void AddMenuItem(Action<object, RoutedEventArgs> action)
         {
-            if (!string.IsNullOrEmpty(power))
+            if (GetType().Name!="Paladin")
             {
                 var special = new MenuItem() { Header = power };
                 AddMenuItem(special, action);
@@ -177,7 +171,7 @@ namespace Final_Battle
             Log(GetType().Name + " Take dmg: " + dmgTaken);
 
             this._hp = this._hp - dmgTaken;
-            this.Hp = "";
+            NotifyPropertyChanged("Hp");
 
             isAlive = this._hp > 0;
         }
@@ -189,7 +183,7 @@ namespace Final_Battle
         public void GrantHealth(int actualHeal)
         {
             _hp += actualHeal;
-            Hp = "0";
+            NotifyPropertyChanged("Hp");
         }
         #endregion
 

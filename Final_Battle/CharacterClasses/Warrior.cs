@@ -12,9 +12,9 @@ namespace Final_Battle
         private const double BUFF = 0.2;
         public Warrior()
         {
-            _hp = 200;
+            _hp = 250;
             _dir = "/Images/Warrior.png";
-            _dmg = 20;
+            _dmg = 40;
             _acc = 0.8;
             _speed = 5;
             _def = 1.0;
