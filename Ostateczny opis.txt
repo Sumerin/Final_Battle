@@ -1,0 +1,3 @@
+https://youtu.be/lZtpIP2YNJU
+Zrealizowano wszystkie punkty z wstepnego opisu.
+Wykorzystano wpf z paradygmatami programowania obiektowoego.
