@@ -10,6 +10,7 @@ namespace Final_Battle
     public class Warrior : Character
     {
         private const double BUFF = 0.2;
+
         public Warrior()
         {
             _hp = 250;
@@ -34,6 +35,5 @@ namespace Final_Battle
             }
             base.Special(Characters, Log);
         }
-
     }
 }

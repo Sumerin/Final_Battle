@@ -10,7 +10,8 @@ namespace Final_Battle
     {
         private const int HEAL = 3;
         private const int MAXHEAL = 8;
-         public Cleric()
+        
+        public Cleric()
         {
             _hp = 200;
             _dir = "/Images/cleric.png";
@@ -21,7 +22,8 @@ namespace Final_Battle
             power = "Divine Heal";
             _powerDescription = CharacterClasses.PowerDescription.DivineHeal;
         }
-         public override void Special(List<Character> Characters, Action<string> Log)
+
+        public override void Special(List<Character> Characters, Action<string> Log)
          {
              foreach (var chara in Characters)
              {

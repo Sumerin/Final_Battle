@@ -22,6 +22,7 @@ namespace Final_Battle
             _powerDescription = CharacterClasses.PowerDescription.ChargedAttack;
 
         }
+
         public override void Attack(Character enemy, Action<string> Log)
         {
             int baseDmg = _dmg;

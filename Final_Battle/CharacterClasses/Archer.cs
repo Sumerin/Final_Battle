@@ -8,9 +8,11 @@ namespace Final_Battle
 {
     class Archer : Character
     {
-        private int timer;
         private const int RESET = 3;
         private const int POWERMULTIPLE = 4;
+
+        private int timer;
+
         public Archer()
         {
             _hp = 200;

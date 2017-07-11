@@ -19,7 +19,6 @@ namespace Final_Battle
 
         protected static Random random = new Random();
 
-
         #region Bind Data
         public string Hp
         {
@@ -123,7 +122,6 @@ namespace Final_Battle
 
             _characterContextMenu.Items.Add(item);
         }
-
         public void AddMenuItem(Action<object, RoutedEventArgs> action)
         {
             if (GetType().Name!="Paladin")
@@ -157,13 +155,11 @@ namespace Final_Battle
             isDone = true;
             NotifyPropertyChanged("CharacterContextMenu");
         }
-
         public virtual void Special(List<Character> Characters, Action<string> Log)
         {
             isDone = true;
             NotifyPropertyChanged("CharacterContextMenu");
         }
-
         public void DealDamage(int AttackPower, Action<string> Log)
         {
             int dmgTaken = (int)Math.Round(AttackPower / _def);
@@ -175,7 +171,6 @@ namespace Final_Battle
 
             isAlive = this._hp > 0;
         }
-
         public void RaiseDefense(double buff)
         {
             _def += buff;
@@ -215,9 +210,7 @@ namespace Final_Battle
 
             return _speed.CompareTo(other._speed);
         }
-
         public event PropertyChangedEventHandler PropertyChanged;
-
         public void NotifyPropertyChanged(string prop)
         {
             if (PropertyChanged != null)
@@ -225,7 +218,6 @@ namespace Final_Battle
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
             }
         }
-
         #endregion
 
     }

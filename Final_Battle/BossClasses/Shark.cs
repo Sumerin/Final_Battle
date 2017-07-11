@@ -7,10 +7,8 @@ using System.Windows.Controls;
 
 namespace Final_Battle
 {
-    public class Shark : Character
+    public class Shark : Boss
     {
-        List<Character> hero;
-        Action<string> Log;
         public Shark(List<Character> hero, Action<string> Log)
         {
             this._hp = 1200;

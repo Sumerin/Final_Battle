@@ -9,7 +9,8 @@ namespace Final_Battle
     class Paladin : Character
     {
         private const int HP_REGEN = 10;
-         public Paladin()
+
+        public Paladin()
         {
             _hp = 400;
             _dir = "/Images/paladin.png";
@@ -21,12 +22,12 @@ namespace Final_Battle
             _powerDescription = CharacterClasses.PowerDescription.HealthRegen;
            
         }
-         public override void ExecuteTurn()
+
+        public override void ExecuteTurn()
          {
              _hp += HP_REGEN;
              NotifyPropertyChanged("Hp");
              base.ExecuteTurn();
          }
-         
     }
 }

@@ -57,6 +57,7 @@
     <Compile Include="Arena.xaml.cs">
       <DependentUpon>Arena.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BossClasses\Boss.cs" />
     <Compile Include="BossClasses\Demon.cs" />
     <Compile Include="BossClasses\Rabbit.cs" />
     <Compile Include="BossClasses\BossDescription.Designer.cs">

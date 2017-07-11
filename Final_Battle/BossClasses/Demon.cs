@@ -8,14 +8,11 @@ using System.Windows.Controls;
 
 namespace Final_Battle
 {
-    class Demon : Character
+    class Demon : Boss
     {
-        private List<Character> hero;
-        private Action<string> Log;
-
         public Demon(List<Character> hero, Action<string> Log)
         {
-            _hp = 2000;
+            _hp = 200;
             _dir = "/Images/demon.png";
             _dmg = 50;
             _acc = 0.7;
@@ -40,6 +37,5 @@ namespace Final_Battle
                 }
             }
         }
-
     }
 }

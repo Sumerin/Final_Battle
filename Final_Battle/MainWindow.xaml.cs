@@ -30,7 +30,6 @@ namespace Final_Battle
         private Character _Second;
         private Character _Third;
         private Character _Fourth;
-
         #endregion
 
 
@@ -78,7 +77,6 @@ namespace Final_Battle
         {
             InitializeComponent();
             this.DataContext = this;
-
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -176,7 +174,6 @@ namespace Final_Battle
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
-
         private void NotifyPropertyChanged(string prop)
         {
             if (PropertyChanged != null)

@@ -42,12 +42,11 @@ namespace Final_Battle
 
             InitializeComponent();
             this.DataContext = this;
+
             this.First = first;
             this.Second = second;
             this.Third = third;
             this.Fourth = foruth;
-
-
 
             characters.Add(first);
             characters.Add(second);
@@ -61,6 +60,7 @@ namespace Final_Battle
                 mob.AddMenuItem(attack, AttackEvent);
                 mob.AddMenuItem(SpecialEvent);
             }
+
             switch (random.Next(3))
             {
                 case 0:
@@ -73,6 +73,7 @@ namespace Final_Battle
                     Boss = new Shark(characters, AddLog);
                     break;
             }
+
             characters.Add(this.Boss);
             characters.Sort();
             characters.Reverse();
@@ -83,7 +84,9 @@ namespace Final_Battle
         {
             StartRoundButton.IsEnabled = false;
             bool isHeroAlive = false;
+
             AddLog("Round Began!");
+
             foreach (var item in characters)
             {
                 activeHero = item;
@@ -98,24 +101,23 @@ namespace Final_Battle
                     return;
                 }
             }
+
             if (!isHeroAlive)
             {
                 AddLog("YOU HAVE LOSE!!");
                 return;
             }
+
             StartRoundButton.IsEnabled = true;
         }
         private void AttackEvent(object sender, RoutedEventArgs e)
         {
-
             this.activeHero.Attack(Boss, AddLog);
-
         }
         private void SpecialEvent(object sender, RoutedEventArgs e)
         {
             Debug.WriteLine(sender.GetType());
             this.activeHero.Special(characters, AddLog);
-
         }
         #endregion
 
