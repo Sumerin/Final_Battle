@@ -1,3 +1,12 @@
 https://youtu.be/lZtpIP2YNJU
 Zrealizowano wszystkie punkty z wstepnego opisu.
 Wykorzystano wpf z paradygmatami programowania obiektowoego.
+
+1. Wyra¿enia Linq- brak
+2. Dziedziczenie - ka¿da klasa bohatera/przeciwnika dziedziczy po klasie Character
+3. Polimorfizm - dodawanie "menuItem" do menu Contextowego (Character.cs)
+4. Enumy - choice.cs
+5. Hermetyzacja - jest
+6. Interfejsy - brak
+7. Wyra¿enia lambda - AddLog uzycie dispatchera
+8. Delegaty - przekazywanie metody AddLog do obiektu przeciwnika.
